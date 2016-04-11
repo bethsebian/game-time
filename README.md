@@ -21,7 +21,7 @@ This is a clone of the popular mobile game of the same name, which is itself a r
 5. To build the static files: `$ npm run build`
 6. To run tests in Node: `$ npm test`
 
-## Code We're Proud Of
+## Highlights
 The Pattern Generator and Tadpole classes allow us to automatically generate patterns. Our approach had several steps:
   1. Selecting a canvas size based on the user's level.
   2. Before we pick shapes for all the tiles on the canvas, we create an object for every tile that stores constraints about what type of shape that tile could become. We initialize these objects with constraints based on where they're located on the canvas (for example, the top left tile on the canvas cannot be a shape that needs to connect to another shape either above or below it).
@@ -31,8 +31,6 @@ The Pattern Generator and Tadpole classes allow us to automatically generate pat
     * Once that tiles shape is picked, that tile talks to its four neighbors and updates their constraints. For example, if a tile's sets its shape-orientation as a spoke with the connection pointing to the right (`0-`), the tile to the _right_ of that tile would now be required to be a shape that has a connection to its _left_.
     * Then the next tile, with updated constraints, sets its shape-orientation combination.
     * That loop repeats until all the tiles have picked a shape and orientation. This flow ensures that there are no unattached points in the pattern.
-
-I love figuring out the logic around these types of challenges.
 
 ## Areas for Improvement
 * Refactoring is needed in many files to simplify functions.
